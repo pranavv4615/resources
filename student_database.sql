@@ -122,3 +122,36 @@ select sum(weight) from student_personal_details group by gender;
 select sum(weight) from student_personal_details group by gender order by gender ASC;
 select avg(weight) from student_personal_details group by gender order by gender ASC;
 
+
+
+-- JOINS_TUTORIAL
+ create database join_example;
+ use join_example;
+ CREATE TABLE Orders (OrderID int, CustomerId int, OrderDate varchar(255));
+ show tables;
+ describe Orders;
+ INSERT INTO Orders (OrderId, CustomerId, OrderDate) VALUES (10308, 2, "1996-09-18");
+ ALTER TABLE Orders RENAME COLUMN CustomerId to CustomerID;
+ INSERT INTO Orders(OrderID, CustomerID, OrderDate) VALUES (10309, 37, "1996-09-19");
+ INSERT INTO Orders(OrderID, CustomerID, OrderDate) VALUES (10310, 77, "1996-09-20");
+ CREATE TABLE Customers(CustomerID INT, CustomerName VARCHAR(255), ContactNumber INT, Country VARCHAR(255));
+ INSERT INTO Customers(CustomerID, CustomerName, ContactNumber, Country) VALUES (1, "PAVAN", 7889656782, "INDIA");
+ UPDATE Customers SET ContactNumber = 4294967295 where CustomerID = 1;
+ UPDATE Customers SET ContactNumber = 4294967294 where CustomerID = 1;
+ UPDATE Customers SET ContactNumber = 2147483647 where CustomerID = 1;
+ select * from Customers;
+ ALTER TABLE Customers MODIFY ContactNumber BIGINT;
+ describe Customers;
+ UPDATE Customers SET ContactNumber = 9446734561 where CustomerName = "PAVAN";
+ INSERT INTO Customers(CustomerID, CustomerName, ContactNumber, Country) VALUES (2, "KULDEEP", 7934567821, "JAPAN");
+ INSERT INTO Customers(CustomerID, CustomerName, ContactNumber, Country) VALUES (3, "VIPIN", 7934567822, "CHINA");
+ select * from Orders;
+ select * from Customers;
+ SELECT Orders.OrderID,  Orders.OrderDate, Customers.CustomerName, Customers.ContactNumber FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+ SELECT Orders.OrderID,  Orders.OrderDate, Customers.CustomerName FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+ SELECT *  FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+ SELECT *  FROM Orders LEFT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+ SELECT *  FROM Orders RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+ SELECT Orders.OrderID,  Orders.OrderDate, Customers.CustomerName FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+ SELECT Orders.OrderID,  Orders.OrderDate, Customers.CustomerName FROM Orders LEFT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+ SELECT Orders.OrderID,  Orders.OrderDate, Customers.CustomerName FROM Orders RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
