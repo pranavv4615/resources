@@ -18,11 +18,11 @@ DROP TABLE
 CREATE TABLE
   employees (
     emp_no INT NOT NULL,
-    emp_title VARCHAR NOT NULL,
+    emp_title VARCHAR(255) NOT NULL,
     birth_date DATE NOT NULL,
-    first_name VARCHAR NOT NULL,
-    last_name VARCHAR NOT NULL,
-    gender VARCHAR NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    gender VARCHAR(255) NOT NULL,
     hire_date DATE NOT NULL,
     UNIQUE (emp_title),
     PRIMARY KEY (emp_no)
@@ -76,8 +76,8 @@ DROP TABLE
 
 CREATE TABLE
   titles (
-    title_id VARCHAR NOT NULL,
-    title VARCHAR NOT NULL,
+    title_id VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
     PRIMARY KEY (title_id),
     FOREIGN KEY (title_id) REFERENCES employees (emp_title)
   );
