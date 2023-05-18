@@ -1,0 +1,4 @@
+    1.Maximum Sum Subarray of Size K: Given an array of positive integers and an integer k, find the maximum sum of any contiguous subarray of size k or less.
+
+    2.Given an array consisting of n integers, find the contiguous subarray of given length k that has the maximum average value. 
+    And you need to output the maximum average value.
