@@ -1,0 +1,23 @@
+Scenario: 
+You are working on a project for a company that sells products online. The company has a database with two tables: "Customers" and "Orders." The "Customers" table contains information about the customers, including their unique customer ID, name, email, and country. The "Orders" table contains information about the orders placed by customers, including the order ID, customer ID, product name, quantity, and order date.
+
+Your task is to write SQL queries to extract specific information from the database based on the given requirements.
+
+Requirements:
+
+1.	Retrieve the names and email addresses of all customers from the "Customers" table.
+
+2.	Retrieve the total number of orders placed by each customer, along with their names.
+
+
+3.	Retrieve the customer names and their corresponding order details (product name and quantity) for orders placed after a specific date.(2023-01-01)
+
+4.	Retrieve the names of customers from  USA country and their total order quantities.
+
+
+5.	Retrieve the names and email addresses of all customers, along with their order details (if any).
+
+6.	Retrieve the names and email addresses of the first 3 customers, along with their order details (if any).
+
+
+
