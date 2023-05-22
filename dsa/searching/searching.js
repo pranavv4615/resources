@@ -27,10 +27,8 @@ function binarySearch(arr, key) {
 
 const arr = [3, 7, 9, 12, 15, 18, 22]
 const key = 15
-// console.log(linearSearch(arr, key))
+console.log(linearSearch(arr, key))
 console.log(binarySearch(arr, key))
-
-// time complexity = o(n)
 
 
 
