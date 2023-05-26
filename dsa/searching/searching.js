@@ -32,3 +32,5 @@ console.log(binarySearch(arr, key))
 
 
 
+// timecomplexity for linear search is O(n) - this works for sorted as well as unsorted array
+// timecomplexity for binary search is O(logn)- this is only for sorted array, dont use for unsorted array

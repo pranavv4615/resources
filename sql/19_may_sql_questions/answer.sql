@@ -72,9 +72,7 @@ FROM
   Customers c
   JOIN Orders o ON c.customer_id = o.customer_id
 GROUP BY
-  c.name
-ORDER BY
-  total_orders DESC;
+  c.name;
 
 
 --answer for question 3
