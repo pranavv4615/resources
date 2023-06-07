@@ -8,7 +8,7 @@ class Node {
 
 function getTreeHeight(root) {
     if (!root) {
-        return -1
+        return 0
     }
 
     let left = 0
