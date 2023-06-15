@@ -6,15 +6,15 @@ const {
   postBankDetails,
 } = require("./controller/bankcontroller");
 
-const {
-  getpersonalDetails,
-  postpersonalDetails,
-} = require("./controller/personalcontroller");
+const { getSheets, getSheetById, getBooking, createBooking } = require("./controller/cricketmatch")
 
 router.get("/bankDetails/:bankId", getBankDetails); //mysql
 router.post("/bankDetails", postBankDetails); //mysql
 
-router.get("/personalDetails", getpersonalDetails); //mongodb
-router.post("/personalDetails", postpersonalDetails); //mongodb
+router.get("/sheets", getSheets);
+router.get("/sheets/:sheet_id", getSheetById);
+
+router.get("/booking", getBooking);
+router.post("/booking", createBooking);
 
 module.exports = router;
