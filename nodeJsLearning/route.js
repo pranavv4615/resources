@@ -4,17 +4,23 @@ const router = express.Router();
 const {
   getBankDetails,
   postBankDetails,
+  redirectToWebsite
 } = require("./controller/bankcontroller");
-
+const { login } = require("./controller/authentication")
 const { getSheets, getSheetById, getBooking, createBooking } = require("./controller/cricketmatch")
 
-router.get("/bankDetails/:bankId", getBankDetails); //mysql
-router.post("/bankDetails", postBankDetails); //mysql
+const { verifyToken } = require("./middleware/jwtVerify")
 
-router.get("/sheets", getSheets);
-router.get("/sheets/:sheet_id", getSheetById);
+router.post("/login", login)
+router.get("/bankDetails/:bankId", verifyToken, getBankDetails); //mysql
+router.post("/bankDetails", verifyToken, postBankDetails); //mysql
 
-router.get("/booking", getBooking);
-router.post("/booking", createBooking);
+router.get("/sheets", verifyToken, getSheets);
+router.get("/sheets/:sheet_id", verifyToken, getSheetById);
+
+router.get("/booking", verifyToken, getBooking);
+router.post("/booking", verifyToken, createBooking);
+
+router.get('/website', verifyToken, redirectToWebsite)
 
 module.exports = router;

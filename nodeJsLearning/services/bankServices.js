@@ -42,7 +42,30 @@ const postBankDetailsServices = (req) => {
   });
 };
 
+const redirectToWebsiteService = (req) => {
+
+  const TIMEOUT = 1000
+  setInterval(function () {
+    console.log('hello')
+  }, TIMEOUT);
+
+
+  let data = fs.readSync('./bankServices.js')
+  console.log(req.query)
+  switch (req.query.websiteName) {
+    case "google":
+      return "www.google.com";
+    case "youtube":
+      return "www.youtube.com";
+    case "twitter":
+      return "www.twitter.com";
+    default:
+      return "www.facebook.com"
+  }
+}
+
 module.exports = {
   getBankDetailsServices,
   postBankDetailsServices,
+  redirectToWebsiteService
 };
