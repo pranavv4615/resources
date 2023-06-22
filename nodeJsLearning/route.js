@@ -6,11 +6,12 @@ const {
   postBankDetails,
   redirectToWebsite
 } = require("./controller/bankcontroller");
-const { login } = require("./controller/authentication")
+const { login, register } = require("./controller/authentication")
 const { getSheets, getSheetById, getBooking, createBooking } = require("./controller/cricketmatch")
 
 const { verifyToken } = require("./middleware/jwtVerify")
 
+router.post('/register', register)
 router.post("/login", login)
 router.get("/bankDetails/:bankId", verifyToken, getBankDetails); //mysql
 router.post("/bankDetails", verifyToken, postBankDetails); //mysql
