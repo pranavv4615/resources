@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Details</title>
+</head>
+<body>
+
+<table style="border-collapse: collapse; width: 100%; border: 1px solid #ccc;">
+    <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th style="border: 1px solid #ccc; padding: 8px;">ID</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Name</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Age</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Gender</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Company Name</th>
+            <th style="border: 1px solid #ccc; padding: 8px;">Salary</th>
+        </tr>
+    </thead>
+    <tbody id="employeeTableBody">
+        <!-- Data from the API will be dynamically inserted here -->
+    </tbody>
+</table>
+
+<script>
+    // Fetch data from the API and populate the table
+    fetch('http://127.0.0.1:8001/employee/details')
+        .then(response => response.json())
+        .then(data => {
+            console.log("data", data)
+            const tableBody = document.getElementById('employeeTableBody');
+            data.response.forEach(employee => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td style="border: 1px solid #ccc; padding: 8px;">${employee.id}</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">${employee.name}</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">${employee.age}</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">${employee.gender}</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">${employee.company_name}</td>
+                    <td style="border: 1px solid #ccc; padding: 8px;">${employee.salary}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+</script>
+
+</body>
+</html>

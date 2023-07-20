@@ -4,14 +4,14 @@ connection = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
-    database="users_database"
+    database="python_mysql"
 )
 
 cursor = connection.cursor()
 
-user_id = 4
-username =  "Revathi"
-password = "rev@5321"
+id = 1
+username =  "pranav"
+password = "abc@1234"
 
 cursor.execute(f"SELECT * FROM users WHERE username = '{username}'")
 result = cursor.fetchall()
@@ -20,7 +20,7 @@ print("result: ", result)
 if len(result) == 0:
     #user doesnot exit in the database table
     # Insert this data into the table (users)
-    cursor.execute(f"INSERT INTO users (user_id, username, password) VALUES ({user_id}, '{username}', '{password}')")
+    cursor.execute(f"INSERT INTO users (id, username, password) VALUES ({id}, '{username}', '{password}')")
     connection.commit()
 else:
     #User exist in database table
