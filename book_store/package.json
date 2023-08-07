@@ -1,5 +1,5 @@
 {
-  "name": "node_mysql",
+  "name": "book_store",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "country-to-currency": "^1.0.10",
     "express": "^4.18.2",
-    "mongodb": "^5.7.0",
-    "mysql2": "^3.5.2"
+    "mongodb": "^5.7.0"
   }
 }

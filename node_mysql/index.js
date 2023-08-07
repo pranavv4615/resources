@@ -6,7 +6,7 @@ const cors = require('cors')
 const port = 8001
 
 const { MongoClient } = require('mongodb');
-const uri = "";
+const uri = "mongodb+srv://pranavvsingh50:Seamless123@cluster0.rvlrxxy.mongodb.net/?retryWrites=true&w=majority";;
 
 const client = new MongoClient(uri);
 
@@ -24,14 +24,44 @@ app.get("/employee/details", cors(), async function(req, res){
       res.status(200).json({status: true, response:rows })  
 })
 
-app.get("/restraunt/details", cors(), async function(req, res){
+app.get("/user/details", cors(), async function(req, res){
+
+  // const {name} = req.query;
+  const userData = 
+  [{
+      "name": "Ramesh",
+      "age": 24,
+      "gender": "MALE",
+      "company_name": "Jane Corporation",
+      "salary": 58000,
+  },
+  {
+    "name": "Madhav",
+    "age": 25,
+    "gender": "MALE",
+    "company_name": "GML Corporation",
+    "salary": 58000,
+    },
+    {
+      "name": "Gopal",
+      "age": 25,
+      "gender": "MALE",
+      "company_name": "GML Corporation",
+      "salary": 58000,
+      }]
 
   await client.connect()
-  const database =  client.db("restraunt_db");
-  const collection =  database.collection("restaurant")
+  const database =  client.db("users");
+  const collection =  database.collection("userdetails")
 
+  // const query1 = {$and:[{"gender": "FEMALE"}, {age: {$gt: 25}}, {salary: {$gt: 55000}}]}
+  // const query2 = {$and: [{"gender": "MALE"}, {age: {$gt:28}}, {salary: {$lt: 55000}}]}
+  // console.log(name)
+  // const query3 = {"name": name} //{"name": "jack"}
 
-  const cursor = await collection.find({"name": "pranav restraunt"})
+  // const insertCursor = await collection.insertMany(userData)
+  // console.log("insertCursor", insertCursor)
+  const cursor = await collection.find({ "company_name": "GML Corporation"})
 
   
   const data = []
