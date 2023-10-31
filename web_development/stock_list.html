@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stock List</title>
+        <script>
+            function getStockList(){
+                var map = new Map()
+                map.set("iocl", 256)
+                map.set("tata_motors", 2025)
+                map.set("zomato", 55)
+                map.set("paytm", 678)
+                map.set("tcs", 3500)
+                map.set("irctc", 2400)
+                map.forEach(function(value, key){
+                    console.log(key, value)
+                    if(key && value){
+                        document.getElementById(key).innerHTML = value
+                    }
+                })
+            }
+        </script>
+    </head>
+    <body>
+        <h3>IOCL</h3>
+        <p id="iocl"></p>
+
+        <h3>Tata Motors</h3>
+        <p id="tata_motors"></p>
+
+        <h3>zomato</h3>
+        <p id="zomato"></p>
+
+        <h3>tcs</h3>
+        <p id="tcs"></p>
+
+        <h3>paytm</h3>
+        <p id="paytm"></p>
+
+        <h3>irctc</h3>
+        <p id="irctc"></p>
+       
+        <button type="button" id="get-stock", onclick="getStockList()">Get Stock List from Internet</button>
+    </body>
+</html>
